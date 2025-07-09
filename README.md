@@ -56,7 +56,12 @@
 
 ## 📜 许可证
 
-本项目采用 [MIT许可证](LICENSE) 授权。
+本项目采用 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0](LICENSE) 许可证授权。
+
+**使用条款：**
+- ✅ **允许**：个人学习、DIY制作、非商业用途
+- ❌ **禁止**：商业用途、商业销售
+- 📋 **要求**：必须标注原作者，修改版本必须使用相同许可证
 
 ## 🤝 贡献
 
