@@ -25,13 +25,13 @@
 
 ## 📐 原理图与PCB
 
-本项目使用嘉立创EDA进行设计。查看 `/schematic` 和 `/pcb` 文件夹中的文件。
+本项目使用嘉立创EDA进行设计。查看 `/schematic` 和 `/pcb` 文件夹中的文件。我在PCB布线的时候，懒得自己布线了，直接使用自动布线功能。
 
-- **原理图文件**：`schematic/typec_power.sch.pdf` - 嘉立创EDA格式
-- **PCB文件**：`pcb/` 目录下的Gerber文件
-- **BOM清单**：`pcb/BOM.xlsx` - 嘉立创标准格式
+- **原理图文件**：`schematic/typec_power.pdf` - 嘉立创EDA格式
+- **PCB文件**：`pcb/` 目录下的epro文件
 
 ![原理图预览](schematic/typec_power.png)
+![PCB布线图](pcb/pcb.png)
 ![PCB渲染图](pcb/typec_power_pcb.png)
 
 ## 🖨️ 3D打印外壳
