@@ -30,7 +30,7 @@
 - **原理图文件**：`schematic/typec_power.pdf` - 嘉立创EDA格式
 - **PCB文件**：`pcb/` 目录下的epro文件
 
-![原理图预览](schematic/typec_power.png)
+![原理图预览](schematic/schematic.png)
 ![PCB布线图](pcb/pcb.png)
 ![PCB渲染图](pcb/typec_power_pcb.png)
 
