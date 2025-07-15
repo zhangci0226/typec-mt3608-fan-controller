@@ -1,126 +1,118 @@
+[English](./README.en.md)
 
+# Type-C 供电桌面净化风扇-CleanFan (MT3608)
 
----
+🎉 CleanFan是一个暴力桌面净化风扇，尺寸约 82mm x 82mm x 120mm。5V输入，使用MT3608升压输出12V为冷却风扇供电，5V为LED供电。它配备电源开关、MOSFET控制的输出。该桌面净化风扇使用规格为6025，0.72A的暴力风扇，全功率运行，能有效吸走焊锡、焊台、焊膏产生的焊烟。同时，使用双层过滤材料，内层为hepa过滤纸，外层为过滤棉，尽可能减少焊烟中的有害物质。同时，其产生的大风量也能为刚焊接好的PCB板快速降温。
+![产品图](img/fan.gif)
 
-## 语言/Languages
-- [中文](#type-c-供电桌面净化风扇-cleanfan-mt3608)
-- [English](#english-version)
+## 🎯 用途
 
----
+这个项目主要用于：
+- **焊接时吸走焊烟**：利用风扇将焊接元器件时产生的有害焊烟吸走
+- **过滤焊烟**：双层过滤结构过滤有害物质
+- **PCB降温**：对焊接好的PCB进行快速降温
+- **PCB冷却平台**：阳极氧化铝合金网作为PCB放置平台，风扇向上吹风冷却
+- **桌面空气净化**：作为小型桌面空气净化器使用
 
-## English Version
+## 🔋 主要特性
 
-# Type-C Powered Desktop Air Purifier Fan - CleanFan (MT3608)
+- USB Type-C 5V输入
+- 通过MT3608升压至12V
+- 拨动开关实现全功率控制
+- 风扇和LED MOSFET开关控制
+- 12V 6025暴力风扇
+- **阳极氧化铝合金网**：作为PCB放置平台，散热性能优异
+- **向上吹风设计**：风扇吸入外部空气向上排出，形成PCB冷却气流
+- **嘉立创EDA设计**：使用嘉立创EDA进行原理图和PCB设计
+- 专为焊接工作台和迷你冷却应用设计
 
-🎉 CleanFan is a powerful desktop air purifier fan, with dimensions of approximately 82mm x 82mm x 120mm. 5V input, MT3608 boosts to 12V for the cooling fan and 5V for the LED. It features a power switch and MOSFET-controlled output. The fan uses a 6025 (12V, 0.72A) high-power fan for strong airflow, efficiently removing solder smoke. Dual-layer filtration: inner layer is HEPA filter paper, outer layer is filter cotton (30ppi), reducing harmful substances. The strong airflow also helps cool down freshly soldered PCBs quickly.
+## 📐 原理图与PCB
 
-![Product Image](img/fan.gif)
+本项目使用嘉立创EDA进行设计。查看 `/schematic` 和 `/pcb` 文件夹中的文件。我在PCB布线的时候，懒得自己布线了，直接使用自动布线功能。
 
-## 🎯 Purpose
+- **原理图文件**：`schematic/typec_power.pdf` - 嘉立创EDA格式
+- **PCB文件**：`pcb/` 目录下的epro文件
 
-This project is mainly for:
-- **Removing solder smoke**: The fan draws away harmful smoke during soldering
-- **Filtering smoke**: Dual-layer structure filters harmful substances
-- **PCB cooling**: Quickly cools down soldered PCBs
-- **PCB cooling platform**: Anodized aluminum mesh as a platform, fan blows upward for cooling
-- **Desktop air purification**: Can be used as a small desktop air purifier
+![原理图预览](schematic/schematic.png)
+![PCB布线和渲染图](pcb/preview.png)
 
-## 🔋 Features
+## 📦 BOM 主要元件
 
-- USB Type-C 5V input
-- Boosts to 12V via MT3608
-- Toggle switch for full power control
-- MOSFET switch control for fan and LED
-- 12V 6025 high-power fan
-- **Anodized aluminum mesh**: Excellent heat dissipation, serves as PCB platform
-- **Upward airflow design**: Fan draws air from outside and blows upward for PCB cooling
-- **JLCEDA design**: Schematic and PCB designed with JLCEDA
-- Designed for soldering workbench and mini cooling applications
+### 电子元件
+| 序号 | 类别   | 型号         | 封装                        | 数量 |
+|------|--------|--------------|-----------------------------|------|
+| 1    | 电容   | 22uF         | C0603                       | 2    |
+| 2    | 二极管 | SS34         | SMA_L4.2-W2.7-LS5.0-RD      | 1    |
+| 3    | 电感   | 22uH         | FXL0630-220-M               | 1    |
+| 4    | LED    | NCD0805R1    | LED0805-R-RD                | 8    |
+| 5    | MOS管  | AO3400A      | SOT-23-3_L2.9-W1.3-P1.90... | 2    |
+| 6    | 电阻   | 10kΩ         | R0603                       | 4    |
+| 7    | 电阻   | 1kΩ          | R0603                       | 1    |
+| 8    | 电阻   | 150Ω         | R0603                       | 8    |
+| 9    | 开关   | MSK12C02     | SW-TH_MSK12C02              | 1    |
+| 10   | 升压芯片     | MT3608       | SOT-23-6_L2.9-W1.6-P0.95... | 1    |
+| 11   | 供电口 | TYPE-C 6P    | TYPE-C-SMD_TYPE-C-6P        | 1    |
 
-## 📐 Schematic & PCB
+### 机械元件
+| 序号 | 元件     | 规格           | 说明                 |
+|------|----------|----------------|----------------------|
+| 1    | 风扇     | 12V 0.72A 6025       | 暴力风扇，高风量     |
+| 2    | 铝合金网 | 阳极氧化处理   | PCB放置平台，钣金+阳极氧化，散热优异 |
+| 3    | 外壳     | 3D打印         | 支撑结构，美观实用   |
+| 4    | 螺母     | m2x3x3         | 8颗                  |
+| 5    | 螺母     | m1.4x1.5x2.3   | 4颗                  |
+| 6    | 螺丝     | m2x10          | 4颗                  |
+| 7    | 螺丝     | m2x50          | 4颗                  |
+| 8    | 螺丝     | m1.4x4x2.3   | 4颗                  |
+| 9    | 防震垫   | 10mm x 1mm   | 3m单面泡棉胶带圆点胶贴 4颗 |
 
-This project is designed with JLCEDA. See files in `/schematic` and `/pcb` folders. Auto-routing was used for PCB layout.
+## 🌿 风扇和过滤
+为了让风扇能够将烟吸走，我采用了额定功率为12V，0.72A的规格为6025的风扇，使用2线的即可。这个风扇的风力比较大，能够较好的吸走焊烟。过滤的话，我使用了2层过滤，外面一层为防尘过滤棉，为了能让空气比较好的流通，采用的密度为30ppi，里面一层使用了hepa过滤纸。
 
-- **Schematic**: `schematic/typec_power.pdf` (JLCEDA format)
-- **PCB file**: `.epro` file in `pcb/` directory
+![风扇](img/fan.png)
 
-![Schematic Preview](schematic/schematic.png)
-![PCB Routing & Render](pcb/preview.png)
+## 🖨️ 3D打印外壳
 
-## 📦 BOM Main Components
+查看 `/3d_models` 文件夹中的3D模型文件。
 
-### Electronic Components
-| No. | Category      | Model      | Package                    | Qty |
-|-----|--------------|------------|----------------------------|-----|
-| 1   | Capacitor    | 22uF       | C0603                      | 2   |
-| 2   | Diode        | SS34       | SMA_L4.2-W2.7-LS5.0-RD     | 1   |
-| 3   | Inductor     | 22uH       | FXL0630-220-M              | 1   |
-| 4   | LED          | NCD0805R1  | LED0805-R-RD               | 8   |
-| 5   | MOSFET       | AO3400A    | SOT-23-3_L2.9-W1.3-P1.90...| 2   |
-| 6   | Resistor     | 10kΩ       | R0603                      | 4   |
-| 7   | Resistor     | 1kΩ        | R0603                      | 1   |
-| 8   | Resistor     | 150Ω       | R0603                      | 8   |
-| 9   | Switch       | MSK12C02   | SW-TH_MSK12C02             | 1   |
-| 10  | Booster IC   | MT3608     | SOT-23-6_L2.9-W1.6-P0.95...| 1   |
-| 11  | Power Port   | TYPE-C 6P  | TYPE-C-SMD_TYPE-C-6P       | 1   |
+### 文件格式说明
+- **3mf文件** (`/3d_models/`) - 直接用于3D打印
 
-### Mechanical Components
-| No. | Part        | Spec                | Note                        |
-|-----|-------------|---------------------|-----------------------------|
-| 1   | Fan         | 12V 0.72A 6025      | High airflow fan            |
-| 2   | Alu. mesh   | Anodized            | Sheet metal + anodized, for PCB platform, excellent heat dissipation |
-| 3   | Case        | 3D printed          | Support structure, aesthetic|
-| 4   | Nut         | m2x3x3              | 8 pcs                       |
-| 5   | Nut         | m1.4x1.5x2.3        | 4 pcs                       |
-| 6   | Screw       | m2x10               | 4 pcs                       |
-| 7   | Screw       | m2x50               | 4 pcs                       |
-| 8   | Screw       | m1.4x4x2.3          | 4 pcs                       |
-| 9   | Anti-vibration pad | 10mm x 1mm   | 3M single-sided foam tape, 4 pcs |
+### 3D打印外壳
+直接使用拓竹切片软件，0.4喷嘴和标准的0.2mm层高。外壳主体采用灰色金属pla材料，内部构件采用深粉色pla材料，整体上采用了戴森产品的配色。配合蓝色的led灯，整体效果还不错。
+![3d模型](img/3d.png)
 
-## 🌿 Fan & Filtration
+## 🔧 使用方法
+![3d模型](img/demo.gif)
 
-To efficiently remove smoke, a 12V 0.72A 6025 fan is used (2-wire is sufficient). The fan provides strong airflow for effective smoke removal. For filtration, a two-layer system is used: outer layer is 30ppi dust filter cotton for good airflow, inner layer is HEPA filter paper.
+### 焊接时使用
+1. 将Type-C线连接到电源（5V/2A以上）
+2. 拨动开关开启电源
+3. 风扇开始运转，吸走焊接产生的焊烟
 
-![Fan](img/fan.png)
+### PCB冷却使用
+1. 将焊接完成的PCB放置在阳极氧化铝合金网上
+2. 风扇吸入外部空气，向上吹风
+3. 冷空气通过铝合金网，快速冷却PCB
+4. 铝合金网的高导热性加速散热过程
 
-## 🖨️ 3D Printed Case
+### 双重功能
+- **焊接时**：吸走焊烟，保护健康
+- **焊接后**：快速冷却PCB，提高工作效率
 
-Directly use Twotrees slicing software, 0.4mm nozzle, standard 0.2mm layer height. The main case uses gray metallic PLA, internal parts use deep pink PLA, overall color scheme inspired by Dyson products. With blue LED, the effect is quite nice.
+## 📜 许可证
 
-![3D Model](img/3d.png)
+本项目采用 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0](LICENSE) 许可证授权。
 
-## 🔧 Usage
+**使用条款：**
+- ✅ **允许**：个人学习、DIY制作、非商业用途
+- ❌ **禁止**：商业用途、商业销售
+- 📋 **要求**：必须标注原作者，修改版本必须使用相同许可证
 
-![Demo](img/demo.gif)
+## 🤝 贡献
 
-### During Soldering
-1. Connect the Type-C cable to a power supply (5V/2A or above)
-2. Toggle the switch to turn on the power
-3. The fan starts running and removes solder smoke
+欢迎提交Issue和Pull Request来改进这个项目！
 
-### For PCB Cooling
-1. Place the soldered PCB on the anodized aluminum mesh
-2. The fan draws in outside air and blows upward
-3. Cool air passes through the mesh, quickly cooling the PCB
-4. The high thermal conductivity of the mesh accelerates cooling
+## 📞 联系方式
 
-### Dual Function
-- **During soldering**: Removes smoke, protects health
-- **After soldering**: Quickly cools PCB, improves efficiency
-
-## 📜 License
-
-This project is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0](LICENSE).
-
-**Terms of Use:**
-- ✅ **Allowed**: Personal study, DIY, non-commercial use
-- ❌ **Prohibited**: Commercial use, sales
-- 📋 **Requirement**: Must credit the original author, modified versions must use the same license
-
-## 🤝 Contributing
-
-Issues and Pull Requests are welcome to improve this project!
-
-## 📞 Contact
-
-For questions or suggestions, please contact: zhangci226@163.com
+如有问题或建议，请联系 zhangci226@163.com
